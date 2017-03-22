@@ -1,0 +1,19 @@
+/*------------------------------------*\
+  #Body
+\*------------------------------------*/
+
+/**
+ * Styling for body. Colors, fonts, etc.
+ */
+
+html, body {
+  height: 100%;
+}
+
+html {  }
+
+body {
+  color: $black;
+  font-family: $font-primary;
+  font-weight: normal;
+}

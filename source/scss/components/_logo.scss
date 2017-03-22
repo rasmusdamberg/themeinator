@@ -1,0 +1,35 @@
+/*------------------------------------*\
+  #Logo
+\*------------------------------------*/
+
+/**
+ * The logo contains a wrapper with a bg color and
+ */
+
+.logo {
+  display: block;
+  position: relative;
+  transition: $bg-transition;
+}
+
+.logo--primary {
+  @include button-bg($primary-color);
+}
+
+.logo--secondary {
+  @include button-bg(#ffffff);
+  fill: $black;
+}
+
+.logo--sm {
+  @include circle(60px);
+}
+
+.logo--md {
+  @include circle(80px);
+}
+
+  .logo__svg {
+    max-width: 50%;
+    padding-bottom: 5px;
+  }

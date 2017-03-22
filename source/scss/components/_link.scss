@@ -1,0 +1,16 @@
+/*------------------------------------*\
+  #Links
+\*------------------------------------*/
+
+/**
+ * This section demonstrates how links are styled.
+ */
+
+a {
+  color: $complementary-neutral;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

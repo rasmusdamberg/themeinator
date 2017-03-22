@@ -1,0 +1,21 @@
+/*------------------------------------*\
+  #Global-footer
+\*------------------------------------*/
+
+/**
+ * Comment
+ */
+
+.global-footer {
+  background-color: $black;
+  color: $white;
+  font-size: $font-size-lg;
+  line-height: 26px;
+  min-height: 300px;
+  padding: 20px;
+  position: relative;
+}
+
+  .global-footer a {
+    color: $white;
+  }

@@ -1,0 +1,21 @@
+/*------------------------------------*\
+  #Wrapper
+\*------------------------------------*/
+
+/**
+ * This defines the max width og the global container and centres the layout
+ */
+
+.global-wrapper {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0 40px;
+  max-width: 1600px;
+
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

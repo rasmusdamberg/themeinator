@@ -1,0 +1,29 @@
+/*------------------------------------*\
+  #Buttons
+\*------------------------------------*/
+
+/**
+ * Comment
+ */
+
+.btn {
+  border: none;
+  border-radius: 8px;
+  color: $white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: $font-size-lg;
+  padding: 20px 30px;
+  margin: 10px;
+  text-decoration: none;
+
+  &:hover { text-decoration: none; }
+
+  &:focus { outline: none; }
+}
+
+.btn--primary { @include button-bg($second-color); color: $black; }
+
+.btn--secondary { @include button-bg($first-color); }
+
+.btn--tertiary { @include button-bg($black); }

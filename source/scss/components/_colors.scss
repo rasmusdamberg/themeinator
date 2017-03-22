@@ -1,0 +1,52 @@
+/*------------------------------------*\
+  #Colors
+\*------------------------------------*/
+
+/**
+ * Comment
+ */
+
+.color {}
+
+// Base primary & complementary colors
+.color--primary { background-color: $primary-color }
+
+.color--complementary { background-color: $complementary-color; }
+
+.color--analogous { background-color: $analogous-color; }
+
+.color--complementary-analogous { background-color: $complementary-analogous; }
+
+
+// Primary neutrals, highlight, midtone, shadow
+.color--primary-neutral { background-color: $primary-neutral; }
+
+.color--primary-neutral-light { background-color: $primary-neutral-light; }
+
+.color--primary-neutral-dark { background-color: $primary-neutral-dark; }
+
+
+// Complementary neutrals, highlight, midtone, shadow
+.color--complementary-neutral { background-color: $complementary-neutral; }
+
+.color--complementary-neutral-light { background-color: $complementary-neutral-light; }
+
+.color--complementary-neutral-dark { background-color: $complementary-neutral-dark; }
+
+
+// Pure neutrals, highlight, midtone, shadow
+.color--white { background-color: $white; }
+
+.color--neutral-gray { background-color: $neutral-gray; }
+
+.color--neutral-gray-light { background-color: $neutral-gray-light; }
+
+.color--primary-gray { background-color: $primary-gray; }
+
+.color--primary-gray-light { background-color: $primary-gray-light; }
+
+.color--complementary-gray { background-color: $complementary-gray; }
+
+.color--complementary-gray-light { background-color: $complementary-gray-light; }
+
+.color--black { background-color: $black; }
