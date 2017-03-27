@@ -1,7 +1,7 @@
 /*
 * gulpfile.js
-*	Task Automation to make my life easier.
-*	Author: Rasmus Damberg
+*	Task Automation to make frontend easier
+*	Author: Rasmus Damberg - http://d82.dk
 *	===========================================================================
 */
 
@@ -24,12 +24,13 @@ var gulp = require('gulp'),
 
 var config = {
     css: {
-      src: 'source/scss/**/*.scss', //SASS source folder
-      dest: './public/css/' // Compiled CSS destination
+      src: './dist/source/scss/**/*.scss', //SASS source folder
+      dest: './dist/public/css/' // Compiled CSS destination
     },
     js: {
-      src: './source/js/app.js', //SASS source folder
-      dest: './public/js/' // Compiled CSS destination
+      app: './dist/source/js/app.js', //JS main controller app
+      src: './dist/source/js/**/*.js', //JS source folder
+      dest: './dist/public/js/' // Compiled JS destination
     }
 };
 
@@ -63,7 +64,7 @@ gulp.task('build-css', function() {
 gulp.task('build-js', function () {
   // set up the browserify instance on a task basis
   var devel = browserify({
-    entries: config.js.src,
+    entries: config.js.app,
     debug: true
   });
 
@@ -76,7 +77,7 @@ gulp.task('build-js', function () {
     .pipe(gulp.dest(config.js.dest));
 
   var prod = browserify({
-    entries: config.js.src,
+    entries: config.js.app,
     debug: false
   });
 
@@ -91,13 +92,13 @@ gulp.task('build-js', function () {
 
 // configure the jshint task
 gulp.task('jshint', function() {
-  return gulp.src('source/js/**/*.js')
+  return gulp.src(config.js.src)
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
 // configure which files to watch and what tasks to use on file changes
 gulp.task('watch', ['browser-sync'], function() {
-  gulp.watch('source/scss/**/*.scss', ['build-css']);
-  gulp.watch('source/js/**/*.js', ['jshint', 'build-js']);
+  gulp.watch(config.css.src, ['build-css']);
+  gulp.watch(config.js.src, ['jshint', 'build-js']);
 });
