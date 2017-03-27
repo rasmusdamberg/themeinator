@@ -1,4 +1,4 @@
-# Themeinator - theme for Drupal 8
+# Themeinator - starterkit for Drupal 8
 
 An [atomic design](http://bradfrost.com/blog/post/atomic-web-design/) and [Pattern Lab](http://patternlab.io/) friendly starting point for new Drupal 8 themes. Can be used stand-alone with Pattern Lab. Can be used as a Pattern Lab StarterKit as well.
 
