@@ -44,7 +44,13 @@ In the file `pattern-lab/config/config.yml` change `sourceDir` and `twigAutoesca
  twigAutoescape: false
  ```
 
-If everything went well you should now be able to generate the static Pattern Lab site. In the `pattern-lab` directory run:
+To start patter-lab run:
+
+```sh
+php core/console --server --with-watch
+```
+
+To generate pattern-lab run:
 
 ```sh
 php core/console --generate
