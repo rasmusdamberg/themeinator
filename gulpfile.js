@@ -37,14 +37,6 @@ var config = {
 // Gulp tasks
 // ----------------------------------------------------------------------------
 
-// define the default task and add the watch task to it
-gulp.task('default', ['watch', 'build-css', 'jshint', 'build-js']);
-
-// browser-sync
-gulp.task('browser-sync', ['build-css'], function() {
-    bs.init();
-});
-
 // Compile css
 gulp.task('build-css', function() {
   return gulp.src(config.css.src)
@@ -57,7 +49,9 @@ gulp.task('build-css', function() {
     .pipe(cssnano())
     .pipe(sourcemaps.write('./'))
     .pipe(gulp.dest(config.css.dest))
-    .pipe(bs.reload({stream: true}));
+    .pipe(bs.stream({
+      match: '**/*.css'
+    }));
 });
 
 // JS / Browserify
@@ -74,7 +68,10 @@ gulp.task('build-js', function () {
     .pipe(sourcemaps.init({loadMaps: true}))
     .on('error', gutil.log)
     .pipe(sourcemaps.write())
-    .pipe(gulp.dest(config.js.dest));
+    .pipe(gulp.dest(config.js.dest))
+    .pipe(bs.stream({
+
+    }));
 
   var prod = browserify({
     entries: config.js.app,
@@ -97,8 +94,15 @@ gulp.task('jshint', function() {
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
+// browser-sync
+gulp.task('browser-sync', function() {
+  bs.init({
+
+  });
+});
+
 // configure which files to watch and what tasks to use on file changes
-gulp.task('watch', ['browser-sync'], function() {
+gulp.task('default', ['build-css', 'build-js', 'jshint', 'browser-sync'], function() {
   gulp.watch(config.css.src, ['build-css']);
-  gulp.watch(config.js.src, ['jshint', 'build-js']);
+  gulp.watch(config.js.src, ['build-js', 'jshint']);
 });
