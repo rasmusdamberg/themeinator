@@ -1,0 +1,36 @@
+{
+  "name": "rasmusdamberg/themeinator",
+  "description": "Themeinator - frontend starterkit for Drupal 8",
+  "keywords": [
+    "frontend",
+    "drupal",
+    "theme",
+    "twig",
+    "pattern lab",
+    "starterkit"
+  ],
+  "homepage": "https://github.com/rasmusdamberg/themeinator",
+  "license": "GPL-2.0",
+  "type": "drupal-theme",
+  "authors": [
+    {
+      "name": "Rasmus Damberg"
+    }
+  ],
+  "support": {
+    "issues": "https://github.com/rasmusdamberg/themeinator/issues",
+    "source": "https://github.com/rasmusdamberg/themeinator/releases"
+  },
+  "minimum-stability": "dev",
+  "extra": {
+    "patternlab": {
+      "dist": {
+        "sourceDir": [
+          {
+            "*": "*"
+          }
+        ]
+      }
+    }
+  }
+}
