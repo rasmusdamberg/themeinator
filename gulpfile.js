@@ -9,16 +9,18 @@
 // ----------------------------------------------------------------------------
 
 var gulp = require('gulp'),
+    run = require('gulp-run'),
+    runSequence = require('run-sequence'),
     gutil = require('gulp-util'),
-    jshint = require('gulp-jshint');
-    sass = require('gulp-sass');
-    cssnano = require('gulp-cssnano');
-    sourcemaps = require('gulp-sourcemaps');
-    autoprefixer = require('gulp-autoprefixer');
-    browserify = require('browserify');
-    bs = require('browser-sync');
-    source = require('vinyl-source-stream');
-    buffer = require('vinyl-buffer');
+    jshint = require('gulp-jshint'),
+    sass = require('gulp-sass'),
+    cssnano = require('gulp-cssnano'),
+    sourcemaps = require('gulp-sourcemaps'),
+    autoprefixer = require('gulp-autoprefixer'),
+    browserify = require('browserify'),
+    bs = require('browser-sync'),
+    source = require('vinyl-source-stream'),
+    buffer = require('vinyl-buffer'),
     uglify = require('gulp-uglify');
 
 
@@ -31,16 +33,31 @@ var config = {
       app: './dist/source/js/app.js', //JS main controller app
       src: './dist/source/js/**/*.js', //JS source folder
       dest: './dist/public/js/' // Compiled JS destination
+    },
+    pl: {
+      dir: './pattern-lab', //pattern-lab dir
+      patternsDir: './dist/_patterns' //pattern-lab patterns dir
     }
 };
 
 // Gulp tasks
 // ----------------------------------------------------------------------------
 
-// Compile css
+/**
+ * Sets up BrowserSync and watchers.
+ */
+gulp.task('watch', ['build-css'], function () {
+  bs.init({});
+  gulp.watch(config.css.src, ['build-css']);
+  gulp.watch(config.js.src, ['build-js', 'jshint']);
+  gulp.watch(config.pl.patternsDir + '/**/*.twig', ['pl-generate']);
+});
+
+/**
+ * Compiles Sass files.
+ */
 gulp.task('build-css', function() {
   return gulp.src(config.css.src)
-    .pipe(sourcemaps.init())
     .pipe(sass().on('error', sass.logError))
     .pipe(autoprefixer({
       browsers: ['last 2 versions'],
@@ -54,7 +71,9 @@ gulp.task('build-css', function() {
     }));
 });
 
-// JS / Browserify
+/**
+ * Compiles JS/Browserify
+ */
 gulp.task('build-js', function () {
   // set up the browserify instance on a task basis
   var devel = browserify({
@@ -87,22 +106,30 @@ gulp.task('build-js', function () {
 
 });
 
-// configure the jshint task
+/**
+ * Generates Pattern Lab front-end.
+ */
+gulp.task('pl-generate', function () {
+  run('php ' + config.pl.dir + '/core/console --generate').exec();
+});
+
+/**
+ * Calls BrowserSync reload.
+ */
+gulp.task('bs-reload', function () {
+  bs.reload();
+});
+
+/**
+ * Configure the jshint task
+ */
 gulp.task('jshint', function() {
   return gulp.src(config.js.src)
     .pipe(jshint())
     .pipe(jshint.reporter('jshint-stylish'));
 });
 
-// browser-sync
-gulp.task('browser-sync', function() {
-  bs.init({
-
-  });
-});
-
 // configure which files to watch and what tasks to use on file changes
-gulp.task('default', ['build-css', 'build-js', 'jshint', 'browser-sync'], function() {
-  gulp.watch(config.css.src, ['build-css']);
-  gulp.watch(config.js.src, ['build-js', 'jshint']);
+gulp.task('default', ['watch', 'build-css', 'build-js', 'jshint'], function() {
+
 });

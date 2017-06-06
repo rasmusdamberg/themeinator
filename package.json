@@ -22,5 +22,10 @@
     "jshint-stylish": "^2.2.1",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "gulp-clean": "^0.3.2",
+    "gulp-run": "^1.7.1",
+    "run-sequence": "^1.2.2"
   }
 }
