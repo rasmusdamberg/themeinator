@@ -1,0 +1,40 @@
+/*------------------------------------*\
+  #Utilities
+\*------------------------------------*/
+
+// Center element both horizontal and vertical.
+// Remember to 'postion: relative' parent element.
+.u-center-hv {
+  @include centerElemHV;
+}
+
+// Center element vertical.
+// Remember to 'postion: relative' parent element.
+.u-center-v {
+  @include centerElemV;
+}
+
+
+
+
+
+
+// This section styles the SVG icon spritesheet
+.u-svg-icon {
+  display: block;
+  max-width: 100px;
+}
+
+
+
+
+
+// This hides content for browseres but makes it visible for screenreaders
+.u-visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 1px;
+  width: 1px;
+  word-wrap: normal;
+}

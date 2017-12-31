@@ -6,7 +6,7 @@
  * Comment
  */
 
-.btn {
+.c-btn {
   border: none;
   border-radius: 8px;
   color: $white;
@@ -22,8 +22,8 @@
   &:focus { outline: none; }
 }
 
-.btn--primary { @include button-bg($second-color); color: $black; }
+.c-btn--primary { @include button-bg($second-color); color: $black; }
 
-.btn--secondary { @include button-bg($first-color); }
+.c-btn--secondary { @include button-bg($first-color); }
 
-.btn--tertiary { @include button-bg($black); }
+.c-btn--tertiary { @include button-bg($black); }

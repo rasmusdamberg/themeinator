@@ -1,64 +1,79 @@
 /*------------------------------------*\
-  #Vendor
+  #Settings
 \*------------------------------------*/
 
-/**
-* Import thirdparty/vendor specific styles here. (ex: normalize)
-**/
+/*
+ * Used with preprocessors and contain font, colors definitions, etc.
+ */
 
-@import "vendor/normalize";
-@import "vendor/csswizardry-grids";
+@import "settings/base",
+        "settings/colors",
+        "settings/fonts";
 
 
 
 
 
 /*------------------------------------*\
-  #Utilities
+  #Tools
 \*------------------------------------*/
 
-/**
-* Configuration and helpers
-**/
+/*
+ * Globally used mixins and functions.
+ */
 
-@import "utilities/functions",
-        "utilities/settings",
-        "utilities/accessibility",
-        "utilities/animations",
-        "utilities/mixins",
-        "utilities/helpers",
-        "utilities/placeholders";
+
+@import "tools/functions",
+        "tools/mixins";
 
 
 
 
 
 /*------------------------------------*\
-  #Base
+  #Generic
 \*------------------------------------*/
 
 /**
-* Base stuff
+ * Reset and/or normalize styles, box-sizing definition, etc.
+ * This is the first layer which generates actual CSS.
 **/
 
-@import "base/typography",
-        "base/body";
+@import "generic/normalize";
 
 
 
 
 
 /*------------------------------------*\
-  #Layout
+  #Elements
 \*------------------------------------*/
 
 /**
-* Layout-related sections
+ * Styling for bare HTML elements (like H1, A, etc.). These come with default
+ * styling from the browser so we can redefine them here.
 **/
 
-@import "layout/wrapper",
-        "layout/header",
-        "layout/footer";
+@import "elements/headings",
+        "elements/input",
+        "elements/link",
+        "elements/mark",
+        "elements/paragraph";
+
+
+
+
+
+/*------------------------------------*\
+  #Objects
+\*------------------------------------*/
+
+/**
+ * Class-based selectors which define undecorated design patterns,
+ * for example media object known from OOCSS.
+**/
+
+@import "objects/wrapper";
 
 
 
@@ -69,43 +84,23 @@
 \*------------------------------------*/
 
 /**
-* The site building blocks.
+* Specific UI components. This is where majority of our work takes place and
+* our UI components are often composed of Objects and Components.
 **/
 
-@import "components/burger",
-        "components/colors",
-        "components/icons",
-        "components/input",
-        "components/link",
-        "components/logo",
-        "components/mark",
-        "components/navigation",
-        "components/buttons",
-        "components/headings",
-        "components/paragraph";
+@import "components/buttons";
 
 
 
 
 
 /*------------------------------------*\
-  #Pages
+  #Trumps
 \*------------------------------------*/
 
 /**
-* Page-specific styles
+* This layer beats – or 'trumps' – all other layers, and has the power to
+* override anything at all that has gone before it
 **/
 
-
-
-
-
-/*------------------------------------*\
-  #Shame
-\*------------------------------------*/
-
-/**
-* This file contains all hacks, fixes and generel workarounds
-**/
-
-@import "utilities/shame";
+@import "trumps/utilities";
