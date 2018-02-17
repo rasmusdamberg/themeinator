@@ -6,9 +6,9 @@
  * Used with preprocessors and contain font, colors definitions, etc.
  */
 
-@import "settings/base",
-        "settings/colors",
-        "settings/fonts";
+@import "01-settings/base",
+        "01-settings/colors",
+        "01-settings/fonts";
 
 
 
@@ -23,8 +23,8 @@
  */
 
 
-@import "tools/functions",
-        "tools/mixins";
+@import "02-tools/functions",
+        "02-tools/mixins";
 
 
 
@@ -39,7 +39,7 @@
  * This is the first layer which generates actual CSS.
 **/
 
-@import "generic/normalize";
+@import "03-generic/normalize";
 
 
 
@@ -54,11 +54,11 @@
  * styling from the browser so we can redefine them here.
 **/
 
-@import "elements/headings",
-        "elements/input",
-        "elements/link",
-        "elements/mark",
-        "elements/paragraph";
+@import "04-elements/headings",
+        "04-elements/input",
+        "04-elements/link",
+        "04-elements/mark",
+        "04-elements/paragraph";
 
 
 
@@ -73,7 +73,7 @@
  * for example media object known from OOCSS.
 **/
 
-@import "objects/wrapper";
+@import "05-objects/wrapper";
 
 
 
@@ -88,7 +88,7 @@
 * our UI components are often composed of Objects and Components.
 **/
 
-@import "components/buttons";
+@import "06-components/buttons";
 
 
 
@@ -103,4 +103,4 @@
 * override anything at all that has gone before it
 **/
 
-@import "trumps/utilities";
+@import "07-trumps/utilities";
